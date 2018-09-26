@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour {
     private Rigidbody2D rigidBody;
 
     private bool isGrounded = false;
+    private int groundingMask = int.MaxValue - (1 << 8);
 
 	// Use this for initialization
 	void Start() {
@@ -43,7 +44,7 @@ public class PlayerControl : MonoBehaviour {
     void UpdateGrounding() {
         Vector3 groundCheck = transform.position - new Vector3(0, 0.4f, 0);
 
-        RaycastHit2D hit = Physics2D.Linecast(transform.position, groundCheck);
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, groundCheck, groundingMask);
         if (hit.collider != null) {
             isGrounded = true;
         } else {
