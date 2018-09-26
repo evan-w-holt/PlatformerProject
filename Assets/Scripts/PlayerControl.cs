@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerControl : MonoBehaviour {
@@ -50,5 +51,20 @@ public class PlayerControl : MonoBehaviour {
         } else {
             isGrounded = false;
         }
+    }
+
+    // Called when the player runs into something
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Death")) {
+            StartCoroutine(Kill());
+        }
+    }
+
+    // Kills the player
+    IEnumerator Kill() {
+        yield return new WaitForSeconds(1);
+
+        // Reload the level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
