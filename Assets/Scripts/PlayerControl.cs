@@ -9,7 +9,7 @@ public class PlayerControl : MonoBehaviour {
     //Some Parameters
     
     public float speed;
-    public float jumpheight;
+    public float jumpHeight;
 
     private Rigidbody2D rigidBody;
 
@@ -35,7 +35,7 @@ public class PlayerControl : MonoBehaviour {
         vel.x = horizontal;
 
         if (Input.GetAxis("Jump") > 0 && isGrounded) {
-            vel.y = jumpheight;
+            vel.y = jumpHeight;
         }
 
         rigidBody.velocity = vel;
@@ -43,7 +43,8 @@ public class PlayerControl : MonoBehaviour {
 
     // Determines if the player can jump
     void UpdateGrounding() {
-        Vector3 groundCheck = transform.position - new Vector3(0, 0.4f, 0);
+        // groundCheck is below the character if jumpHeight is positive, otherwise it is above the character
+        Vector3 groundCheck = transform.position - new Vector3(0, 0.4f * (jumpHeight < 0 ? -1 : 1), 0);
 
         RaycastHit2D hit = Physics2D.Linecast(transform.position, groundCheck, groundingMask);
         if (hit.collider != null) {
