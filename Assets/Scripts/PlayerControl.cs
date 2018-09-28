@@ -16,6 +16,9 @@ public class PlayerControl : MonoBehaviour {
     private bool isGrounded = false;
     private int groundingMask = int.MaxValue - (1 << 8);
 
+    // When cancelDirection is not zero, we cancel horizontal movement in the direction of cancelDirection
+    private static float cancelDirection;
+
 	// Use this for initialization
 	void Start() {
         rigidBody = transform.GetComponent<Rigidbody2D>();
@@ -31,13 +34,10 @@ public class PlayerControl : MonoBehaviour {
     void InterpretInput() {
         float horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         Vector2 vel = rigidBody.velocity;
-
-        vel.x = horizontal;
-
+        vel.x = horizontal; 
         if (Input.GetAxis("Jump") > 0 && isGrounded) {
             vel.y = jumpHeight;
         }
-
         rigidBody.velocity = vel;
     }
 
@@ -69,4 +69,24 @@ public class PlayerControl : MonoBehaviour {
         // Reload the level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    /*
+    //Check if the character touches the wall
+    private void OnTheWall()
+    {
+        //get the direction of movement
+        Vector2 velocity = rigidBody.velocity;
+
+        //calculate the end point of the linecast
+        Vector3 wallCheck = transform.position - new Vector3(0.4f * (velocity.x < 0 ? 1 : -1), 0, 0);
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, wallCheck, groundingMask);
+        if (hit.collider != null)
+        {
+            cancelDirection = velocity.x;
+        }
+        else
+        {
+            cancelDirection = 0;
+        }
+    }
+    */
 }
