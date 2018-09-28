@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bounds
+    uniqueID: 1701213983
+    locked: 0

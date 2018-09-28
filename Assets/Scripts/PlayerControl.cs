@@ -63,7 +63,8 @@ public class PlayerControl : MonoBehaviour {
 
     // Kills the player
     IEnumerator Kill() {
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
+        yield return null;
 
         // Reload the level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
