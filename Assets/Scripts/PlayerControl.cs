@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-        rigidBody = transform.GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour {
     // Determines if the player can jump
     void UpdateGrounding() {
         // groundCheck is below the character if jumpHeight is positive, otherwise it is above the character
-        Vector3 groundCheck = transform.position - new Vector3(0, 0.4f * (jumpHeight < 0 ? -1 : 1), 0);
+        Vector3 groundCheck = transform.position - new Vector3(0, 0.55f * (jumpHeight < 0 ? -1 : 1), 0);
 
         RaycastHit2D hit = Physics2D.Linecast(transform.position, groundCheck, groundingMask);
         if (hit.collider != null) {

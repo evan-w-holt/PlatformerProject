@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4692166961785344}
   - component: {fileID: 212473329696684628}
   - component: {fileID: 61003825052570770}
+  - component: {fileID: 114680647359788456}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Death
@@ -64,8 +65,28 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 0.9, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &114680647359788456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126166375957548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb03c324de5fb9840a32106096944e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationFrames:
+  - {fileID: 21300000, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
+  - {fileID: 21300002, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
+  - {fileID: 21300004, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
+  - {fileID: 21300006, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
+  - {fileID: 21300008, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
+  - {fileID: 21300010, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
+  framesBetweenEffect: 120
+  animationFramerate: 3
 --- !u!212 &212473329696684628
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -101,7 +122,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 80eb900cde1f65a4580be8618a55d887, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
