@@ -7,11 +7,11 @@ public class SimpleSpriteAnimator : MonoBehaviour {
     // Array of all of the animation frames
     public Sprite[] animationFrames;
 
-    // The number of frames between each iteration of sprite effects
-    public int framesBetweenEffect;
+    // The time between each iteration of sprite effects
+    public float timeBetweenEffect;
 
-    // The speed of the effect animation (number of frames that should pass between each animation frame)
-    public int animationFramerate;
+    // The speed of the effect animation (time that should pass between each animation frame)
+    public float animationTime;
 
     // The status of the animation
     private bool isIdling = true;
@@ -20,7 +20,7 @@ public class SimpleSpriteAnimator : MonoBehaviour {
     private int frameNum = 0;
 
     private SpriteRenderer sprite;
-    private int framesPassed = 0;
+    private float time = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -31,20 +31,20 @@ public class SimpleSpriteAnimator : MonoBehaviour {
 	void Update () {
         Animate();
 
-        framesPassed++;
+        time += Time.deltaTime;
 	}
 
     // Animates the sprite
     void Animate() {
-        if (isIdling && framesPassed >= framesBetweenEffect) {
+        if (isIdling && time >= timeBetweenEffect) {
             isIdling = false;
             frameNum++;
-            framesPassed = 0;
+            time = 0;
 
             sprite.sprite = animationFrames[frameNum];
-        } else if (!isIdling && framesPassed >= animationFramerate) {
+        } else if (!isIdling && time >= animationTime) {
             frameNum++;
-            framesPassed = 0;
+            time = 0;
 
             if (frameNum > animationFrames.Length - 1) {
                 frameNum = 0;

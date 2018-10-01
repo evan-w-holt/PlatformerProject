@@ -15,7 +15,9 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        MoveCamera();
+        if (player1 && player2) {
+            MoveCamera();
+        }
 	}
 
     // Moves the camera to track the players

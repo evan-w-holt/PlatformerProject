@@ -85,8 +85,8 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
   - {fileID: 21300008, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
   - {fileID: 21300010, guid: 0ec08ee60dbf0fe48a5b8986d88ff7fc, type: 3}
-  framesBetweenEffect: 120
-  animationFramerate: 3
+  timeBetweenEffect: 3
+  animationTime: 0.05
 --- !u!212 &212473329696684628
 SpriteRenderer:
   m_ObjectHideFlags: 1

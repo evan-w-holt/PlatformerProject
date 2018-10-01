@@ -21,11 +21,14 @@ GameObject:
   - component: {fileID: 4556637992264328}
   - component: {fileID: 212789827211587430}
   - component: {fileID: 61016047207249360}
+  - component: {fileID: 58914702838120814}
+  - component: {fileID: 58302312642769378}
   - component: {fileID: 50091230759514850}
   - component: {fileID: 114653732951200250}
+  - component: {fileID: 114651538145755566}
   m_Layer: 8
   m_Name: Character
-  m_TagString: Player
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,12 +60,42 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 5e07d74929f092c4aa24792411029179, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &58302312642769378
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021178426623936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 5e07d74929f092c4aa24792411029179, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2, y: -0.3}
+  serializedVersion: 2
+  m_Radius: 0.2
+--- !u!58 &58914702838120814
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021178426623936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 5e07d74929f092c4aa24792411029179, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2, y: -0.3}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!61 &61016047207249360
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -75,7 +108,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
+  m_Offset: {x: 0, y: 0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -86,8 +119,44 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.9}
+  m_Size: {x: 0.75, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &114651538145755566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021178426623936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743ea1de0acf22c45af9db7174dc6052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
+  shadow: {fileID: 0}
+  idleAnimationFrames:
+  - {fileID: 21300000, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300002, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300004, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300000, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300002, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300004, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  idleTimeBetweenEffect: 4
+  idleAnimationTime: 0.1
+  runningAnimationFrames:
+  - {fileID: 21300006, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300008, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300006, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300000, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300010, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300012, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300010, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  - {fileID: 21300000, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  runningAnimationTime: 0.1
+  jumpingSprite: {fileID: 21300014, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  deathSprite: {fileID: 21300016, guid: 6389529af2b6c164786358037b48dfde, type: 3}
+  characterStatus: 0
+  shadowStatus: 0
 --- !u!114 &114653732951200250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  jumpHeight: 10
+  jumpHeight: 12
 --- !u!212 &212789827211587430
 SpriteRenderer:
   m_ObjectHideFlags: 1

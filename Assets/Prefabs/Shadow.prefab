@@ -21,11 +21,13 @@ GameObject:
   - component: {fileID: 4597932078219894}
   - component: {fileID: 212850097908253802}
   - component: {fileID: 61152268862898506}
+  - component: {fileID: 58779207421672262}
+  - component: {fileID: 58681299769785500}
   - component: {fileID: 50884819226809894}
   - component: {fileID: 114379635069438984}
   m_Layer: 8
   m_Name: Shadow
-  m_TagString: Player
+  m_TagString: Shadow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,12 +59,42 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: -2
+  m_GravityScale: -3
   m_Material: {fileID: 6200000, guid: 5e07d74929f092c4aa24792411029179, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &58681299769785500
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1975461439012400}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 5e07d74929f092c4aa24792411029179, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2, y: 0.3}
+  serializedVersion: 2
+  m_Radius: 0.2
+--- !u!58 &58779207421672262
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1975461439012400}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 5e07d74929f092c4aa24792411029179, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2, y: 0.3}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!61 &61152268862898506
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -75,7 +107,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: 0, y: -0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -86,7 +118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.9}
+  m_Size: {x: 0.75, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &114379635069438984
 MonoBehaviour:
@@ -100,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  jumpHeight: -10
+  jumpHeight: -12
 --- !u!212 &212850097908253802
 SpriteRenderer:
   m_ObjectHideFlags: 1

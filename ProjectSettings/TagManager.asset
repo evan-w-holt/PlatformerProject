@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Death
+  - Character
+  - Shadow
   layers:
   - Default
   - TransparentFX

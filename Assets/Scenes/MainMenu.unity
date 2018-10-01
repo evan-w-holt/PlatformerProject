@@ -341,8 +341,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6389529af2b6c164786358037b48dfde, type: 3}
   - {fileID: 21300002, guid: 6389529af2b6c164786358037b48dfde, type: 3}
   - {fileID: 21300004, guid: 6389529af2b6c164786358037b48dfde, type: 3}
-  framesBetweenEffect: 200
-  animationFramerate: 5
+  timeBetweenEffect: 4
+  animationTime: 0.1
 --- !u!212 &1321554162
 SpriteRenderer:
   m_ObjectHideFlags: 0
