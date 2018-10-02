@@ -14,9 +14,11 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         if (player1 && player2) {
-            MoveCamera();
+            if (Mathf.Abs(player1.transform.position.x - player2.transform.position.x) <= 4.25) {
+                MoveCamera();
+            }
         }
 	}
 
