@@ -56,6 +56,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (Input.GetAxis("Jump") > 0 && isGrounded) {
             vel.y = jumpHeight;
+            SoundSystem.instance.PlayJumpSound();
         }
 
         rigidBody.velocity = vel;
@@ -83,6 +84,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Kills the player
     void Kill() {
+        SoundSystem.instance.PlayDeathSound();
         StartCoroutine(CharacterAnimator.instance.Death());
     }
 }

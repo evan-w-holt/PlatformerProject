@@ -45,10 +45,12 @@ public class CharacterAnimator : MonoBehaviour {
     private float characterTime = 0;
     private float shadowTime = 0;
 
+    void Awake() {
+        instance = this;
+    }
+
     // Use this for initialization
     void Start () {
-        instance = this;
-
         character = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
         shadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
     }
