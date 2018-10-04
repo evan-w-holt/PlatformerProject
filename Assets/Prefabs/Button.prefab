@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4897149464313384}
   - component: {fileID: 212308186401141904}
   - component: {fileID: 61098926494565152}
+  - component: {fileID: 114678418657984530}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -66,6 +67,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &114678418657984530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172875840720738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e9a14ed8c36f249ba656c71b63b410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 0}
+  buttonPress: {fileID: 21300002, guid: e264c9f33cbfc624a982f1bebec0325b, type: 3}
+  buttonUp: {fileID: 21300000, guid: e264c9f33cbfc624a982f1bebec0325b, type: 3}
 --- !u!212 &212308186401141904
 SpriteRenderer:
   m_ObjectHideFlags: 1

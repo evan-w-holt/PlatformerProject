@@ -15,7 +15,7 @@ public class Door : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        SceneManager.LoadScene(currentScene+1);
+        SceneManager.LoadScene(currentScene + 1);
     }
 
 	// Update is called once per frame

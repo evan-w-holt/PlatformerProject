@@ -396,9 +396,18 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1876044468757578, guid: 1d7b47cc5238854409131627142dee8a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7b47cc5238854409131627142dee8a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &330588882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1876044468757578, guid: 1d7b47cc5238854409131627142dee8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 330588881}
 --- !u!1001 &368449688
 Prefab:
   m_ObjectHideFlags: 0
@@ -873,6 +882,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114678418657984530, guid: edf246fab8ca6db4fa0dff49a58c6f36,
+        type: 2}
+      propertyPath: platform
+      value: 
+      objectReference: {fileID: 330588882}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf246fab8ca6db4fa0dff49a58c6f36, type: 2}
   m_IsPrefabAsset: 0
