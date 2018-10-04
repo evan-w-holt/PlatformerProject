@@ -14,14 +14,14 @@ public class Door : MonoBehaviour {
         currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        SceneManager.LoadScene(currentScene + 1);
-    }
-
 	// Update is called once per frame
 	void Update () {
         Rotate(Time.deltaTime);
 	}
+
+    void OnTriggerEnter2D(Collider2D col) {
+        SceneManager.LoadScene(currentScene + 1);
+    }
 
     // Rotates the door sprite
     void Rotate(float deltaTime) {

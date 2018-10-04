@@ -25,20 +25,22 @@ public class Button : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision) {
         if (isEnabled) {
 
-            StartCoroutine(Reenable()) ;
+            StartCoroutine(Reenable());
 
             if (isButtonPressed) {
                 isButtonPressed = false;
                 platform.SetActive(false);
-                gameObject.GetComponent<SpriteRenderer>().sprite = buttonPress;
+                gameObject.GetComponent<SpriteRenderer>().sprite = buttonUp;
             } else {
                 isButtonPressed = true;
                 platform.SetActive(true);
-                gameObject.GetComponent<SpriteRenderer>().sprite = buttonUp;
+                gameObject.GetComponent<SpriteRenderer>().sprite = buttonPress;
             }
         }
         
     }
+
+    // Reenables the button 1 second after being pressed
     IEnumerator Reenable() {
         isEnabled = false;
         yield return new WaitForSeconds(1f);
