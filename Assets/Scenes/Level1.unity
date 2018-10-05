@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &25653807
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523037733199080, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a21dafe4d96521488b282a5b84d2234, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &268923253
 Prefab:
   m_ObjectHideFlags: 0
@@ -7073,7 +7115,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82446060834815010, guid: c4254538ae884db40b50a99a7eacfcaf, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c4254538ae884db40b50a99a7eacfcaf, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1963821707 stripped

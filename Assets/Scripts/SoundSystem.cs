@@ -15,6 +15,9 @@ public class SoundSystem : MonoBehaviour {
     public AudioClip death;
     public AudioClip spikes;
 
+    // The empty game object containing the music
+    private static GameObject musicObject = null;
+
     void Awake() {
         instance = this;
 	}
@@ -22,6 +25,8 @@ public class SoundSystem : MonoBehaviour {
     // Use this for initialization
     void Start() {
         source = GetComponent<AudioSource>();
+
+        GetMusic();
     }
 
     // Update is called once per frame
@@ -38,5 +43,22 @@ public class SoundSystem : MonoBehaviour {
     public void PlayDeathSound() {
         source.PlayOneShot(death);
         source.PlayOneShot(spikes);
+    }
+
+    // Gets the music object and make sure there are not multiples
+    void GetMusic() {
+        GameObject music = GameObject.Find("Music");
+
+        if (music) {
+            if (!musicObject) {
+                musicObject = music;
+
+                if (!musicObject.GetComponent<AudioSource>().isPlaying) {
+                    musicObject.GetComponent<AudioSource>().Play();
+                }
+
+                DontDestroyOnLoad(music);
+            }
+        }
     }
 }

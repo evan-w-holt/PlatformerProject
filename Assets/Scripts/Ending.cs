@@ -29,6 +29,9 @@ public class Ending : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        GameObject music = GameObject.Find("Music");
+        if (music) { Destroy(music); }
+
         StartCoroutine(PlayScene());
 	}
 	
@@ -77,6 +80,7 @@ public class Ending : MonoBehaviour {
 
             character.GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpHeight);
             SoundSystem.instance.PlayJumpSound();
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
