@@ -30,7 +30,7 @@ public class Ending : MonoBehaviour {
         yield return new WaitForSeconds(1f);
 
         SetSprite(surprise);
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 25; i++) {
             CameraShake();
             yield return null;
             yield return null;
