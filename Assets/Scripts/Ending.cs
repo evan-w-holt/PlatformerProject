@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Ending : MonoBehaviour {
 
@@ -11,18 +13,28 @@ public class Ending : MonoBehaviour {
     // The shadow sprite for the end of the scene
     public GameObject endShadow;
 
+    // The screen overlay in the canvas
+    public Image overlay;
+
     // Surprised sprite and jump sprite
     public Sprite surprise;
     public Sprite jump;
 
-	// Use this for initialization
-	void Start () {
+    public float jumpHeight;
+
+    private bool isGrounded;
+
+    // The layer mask for grounding raycasts
+    private int groundingMask = int.MaxValue - (1 << 8);
+
+    // Use this for initialization
+    void Start () {
         StartCoroutine(PlayScene());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        UpdateGrounding();
 	}
 
     // Runs the ending scene
@@ -41,7 +53,10 @@ public class Ending : MonoBehaviour {
         SetSprite(jump);
         shadow.SetActive(false);
         endShadow.SetActive(true);
-        Jumping();
+        StartCoroutine(Jumping());
+
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(FadeOut());
     }
 
     // Sets the sprites
@@ -56,7 +71,35 @@ public class Ending : MonoBehaviour {
     }
 
     // Makes the character jump
-    void Jumping() {
-        
+    IEnumerator Jumping() {
+        while (true) {
+            yield return new WaitUntil(delegate { return isGrounded; });
+
+            character.GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpHeight);
+            SoundSystem.instance.PlayJumpSound();
+        }
+    }
+
+    // Determines if the player can jump
+    void UpdateGrounding() {
+        // groundCheck is below the character if jumpHeight is positive, otherwise it is above the character
+        Vector3 groundCheck = character.transform.position - new Vector3(0, 0.55f * (jumpHeight < 0 ? -1 : 1), 0);
+
+        RaycastHit2D hit = Physics2D.Linecast(character.transform.position, groundCheck, groundingMask);
+        if (hit.collider != null) {
+            isGrounded = true;
+        } else {
+            isGrounded = false;
+        }
+    }
+
+    // Fades the screen to black
+    IEnumerator FadeOut() {
+        for (int i = 0; i < 256; i++) {
+            overlay.color = new Color(0, 0, 0, i/255f);
+            yield return null;
+        }
+
+        SceneManager.LoadScene(0);
     }
 }

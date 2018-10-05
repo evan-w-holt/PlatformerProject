@@ -30,6 +30,9 @@ public class CharacterAnimator : MonoBehaviour {
     // The death sprite
     public Sprite deathSprite;
 
+    // Whether or not the player just died
+    public static bool justDied = false;
+
     // The status of the character and shadow (the current animation being run) and the corresponding enum
     [HideInInspector]
     public enum AnimStatus {
@@ -53,8 +56,10 @@ public class CharacterAnimator : MonoBehaviour {
     void Start () {
         character = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
         shadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
-        StartCoroutine(Blink());
 
+        if (justDied) {
+            StartCoroutine(Blink());
+        }
     }
 
     // Update is called once per frame
@@ -119,18 +124,19 @@ public class CharacterAnimator : MonoBehaviour {
         }
     }
 
-    IEnumerator Blink()
-    {
-        for (int i = 0; i < 20; i++)
-        {
-            character.gameObject.SetActive(true);
-            shadow.gameObject.SetActive(true);
+    // Flashes the character and shadow if you just died
+    IEnumerator Blink() {
+        justDied = false;
+
+        for (int i = 0; i < 15; i++) {
+            character.color = new Color32(255, 255, 255, 0);
+            shadow.color = new Color32(0, 0, 0, 0);
             yield return null;
-
-            character.gameObject.SetActive(false);
-            shadow.gameObject.SetActive(false);
-
-           
+            yield return null;
+            character.color = new Color32(255, 255, 255, 255);
+            shadow.color = new Color32(0, 0, 0, 255);
+            yield return null;
+            yield return null;
         }
         
     }
@@ -155,6 +161,8 @@ public class CharacterAnimator : MonoBehaviour {
 
     // Runs the death animation on both sprites
     public IEnumerator Death() {
+        justDied = true;
+
         characterStatus = AnimStatus.Dead;
         shadowStatus = AnimStatus.Dead;
 
