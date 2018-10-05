@@ -53,10 +53,12 @@ public class CharacterAnimator : MonoBehaviour {
     void Start () {
         character = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
         shadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
+        StartCoroutine(Blink());
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if (characterStatus != AnimStatus.Dead && shadowStatus != AnimStatus.Dead) {
             Animate(character, characterStatus, ref characterTime);
             Animate(shadow, shadowStatus, ref shadowTime);
@@ -117,6 +119,22 @@ public class CharacterAnimator : MonoBehaviour {
         }
     }
 
+    IEnumerator Blink()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            character.gameObject.SetActive(true);
+            shadow.gameObject.SetActive(true);
+            yield return null;
+
+            character.gameObject.SetActive(false);
+            shadow.gameObject.SetActive(false);
+
+           
+        }
+        
+    }
+
     // Runs the running animation on the given sprite
     public void Running(SpriteRenderer sprite) {
         if (sprite == character) {
@@ -169,5 +187,6 @@ public class CharacterAnimator : MonoBehaviour {
 
         // Reload the level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }
